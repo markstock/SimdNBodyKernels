@@ -87,7 +87,7 @@ To find the compute time or Flop/s you'll need to divide by the clock frequency 
 
     vortex3Dvel serial          18530.592 mcycles
     vortex3Dvel SIMD (AVX)      2274.150 mcycles	8.15x speedup	(peak at 12.32 GFlop/s)
-    vortex3Dvel_mt1d SIMD (AVX) 214.259 mcycles		89.49x speedup	(peak at 130.7 GFlop/s)
+    vortex3Dvel_mt1d SIMD (AVX) 214.259 mcycles		86.49x speedup	(peak at 130.7 GFlop/s)
 ~~~~
 
 * Desktop (8-core i7-5960X, 4.5GHz OC, Fedora 21, llvm/clang 3.5.0), n=50000
