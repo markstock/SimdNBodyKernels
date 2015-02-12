@@ -23,7 +23,7 @@ Then, install and build ispc.
 Finally, you can build these examples.
 
     git clone https://github.com/markstock/SimdNBodyKernels.git
-    cd SimdNBodyKernels/gravitation3Daccel
+    cd SimdNBodyKernels/grav3Daccel
     make
     ./nbody
 
@@ -68,7 +68,7 @@ Users are encouraged to create new kernels or faster implementations of the curr
 Performance of the serial and SIMD-accelerated functions is reported in clock "cycles".
 To find the compute time or Flop/s you'll need to divide by the clock frequency in MHz.
 
-* Laptop (dual-core i5-2467M, 1.6GHz nominal, 2.0/2.3GHz turbo, Fedora 21, llvm/clang 3.5.0), 10000 points
+* Laptop (2-core i5-2467M, 2.0/2.3GHz turbo, Fedora 21, llvm/clang 3.5.0), n=10000
 
 ~~~~
     grav3Daccel serial          3229.017 mcycles
@@ -79,12 +79,25 @@ To find the compute time or Flop/s you'll need to divide by the clock frequency 
     vortex3Dvel_mt1d SIMD (AVX) 270.951 mcycles		12.45x speedup	(peak at 21.44 GFlop/s)
 ~~~~
 
-* Server (6-core Xeon E5-2640, 2.5GHz, RHEL 6.5, llvm/clang 3.4.2), 50000 points
+* Server (6-core Xeon E5-2640, 2.5GHz, RHEL 6.5, llvm/clang 3.4.2), n=20000
+
+~~~~
+    grav3Daccel serial          17930.472 mcycles
+    grav3Daccel SIMD (AVX)      2237.404 mcycles		8.01x speedup	(peak at 8.048 GFlop/s)
+
+    vortex3Dvel serial          18530.592 mcycles
+    vortex3Dvel SIMD (AVX)      2274.150 mcycles		8.15x speedup	(peak at 12.32 GFlop/s)
+    vortex3Dvel_mt1d SIMD (AVX) 214.259 mcycles		89.49x speedup	(peak at 130.7 GFlop/s)
+~~~~
+
+* Desktop (8-core i7-5960X, 4.5GHz OC, Fedora 21, llvm/clang 3.5.0), n=50000
 
     TBD
 
-* Desktop (8-core i7-5960X, 4.5GHz OC, Fedora 21, llvm/clang 3.5.0), 100000 points
 
-    TBD
+### Acknowledgements
 
+Big thanks to the team at Intel Corp. for creating ispc. Some code in this 
+distribution is taken from the ispc project, and is used in accordance with 
+the license.
 
