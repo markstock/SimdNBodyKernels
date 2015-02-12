@@ -46,6 +46,11 @@ serial version (`nbody_serial.cpp`).
     This is a three-dimensional gravitational kernel using Krasny-style desingularization
     with radius 0.1 and returning only acceleration (not potential).
 
+* elec3Daccel
+
+    This is a three-dimensional electrostatic kernel using Krasny-style desingularization
+    with radius 0.1 and returning only acceleration (not potential).
+
 * vortex3Dvel
 
     This is a three-dimensional vorticity kernel using Krasny-style desingularization
