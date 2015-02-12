@@ -83,10 +83,10 @@ To find the compute time or Flop/s you'll need to divide by the clock frequency 
 
 ~~~~
     grav3Daccel serial          17930.472 mcycles
-    grav3Daccel SIMD (AVX)      2237.404 mcycles		8.01x speedup	(peak at 8.048 GFlop/s)
+    grav3Daccel SIMD (AVX)      2237.404 mcycles	8.01x speedup	(peak at 8.048 GFlop/s)
 
     vortex3Dvel serial          18530.592 mcycles
-    vortex3Dvel SIMD (AVX)      2274.150 mcycles		8.15x speedup	(peak at 12.32 GFlop/s)
+    vortex3Dvel SIMD (AVX)      2274.150 mcycles	8.15x speedup	(peak at 12.32 GFlop/s)
     vortex3Dvel_mt1d SIMD (AVX) 214.259 mcycles		89.49x speedup	(peak at 130.7 GFlop/s)
 ~~~~
 
