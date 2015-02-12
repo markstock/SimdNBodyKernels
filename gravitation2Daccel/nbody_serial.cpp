@@ -6,10 +6,10 @@
 static inline void nbody_kernel_serial(float sx, float sy, float ss,
                                        float tx, float ty,
                                        float* tax, float* tay) {
-    // 10 flops
+    // 11 flops
     float dx = sx - tx;
     float dy = sy - ty;
-    float r2 = dx*dx + dy*dy;
+    float r2 = dx*dx + dy*dy + 0.01;
     r2 = ss/r2;
     *tax += r2 * dx;
     *tay += r2 * dy;

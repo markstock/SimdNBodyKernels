@@ -11,8 +11,8 @@ static inline void nbody_kernel_ispc(float sx, float sy, float ss,
     float dy = sy - ty;
     float r2 = dx*dx + dy*dy;
     r2 = ss/r2;
-    (*tax) += r2 * dx;
-    (*tay) += r2 * dy;
+    *tax += r2 * dx;
+    *tay += r2 * dy;
 }
 
 export void nbody_ispc(uniform int numSrcs, uniform float sx[], uniform float sy[], uniform float ss[],
