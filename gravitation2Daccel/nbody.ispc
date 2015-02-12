@@ -21,7 +21,7 @@ export void nbody_ispc(uniform int numSrcs, uniform float sx[], uniform float sy
 {
     for (uniform int i = 0; i < numTarg; i++) {
         uniform float sumx, sumy;
-        float partialx, partialy;
+        varying float partialx, partialy;
         partialx = 0.0;
         partialy = 0.0;
         foreach (j = 0 ... numSrcs) {
