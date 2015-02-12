@@ -70,12 +70,14 @@ To find the compute time or Flop/s you'll need to divide by the clock frequency 
 
 * Laptop (dual-core i5-2467M, 1.6GHz nominal, 2.0/2.3GHz turbo, Fedora 21, llvm/clang 3.5.0), 10000 points
 
+~~~~
     grav3Daccel serial	3229.017 mcycles
     grav3Daccel SIMD (AVX)	475.211 mcycles		6.79x speedup	(peak at 7.862 GFlop/s)
 
     vortex3Dvel serial	3373.734 mcycles
     vortex3Dvel SIMD (AVX)	477.759 mcycles		7.06x speedup	(peak at 12.16 GFlop/s)
     vortex3Dvel_mt1d SIMD (AVX)	270.951 mcycles		12.45x speedup	(peak at 21.44 GFlop/s)
+~~~~
 
 * Server (6-core Xeon E5-2640, 2.5GHz, RHEL 6.5, llvm/clang 3.4.2), 50000 points
 
