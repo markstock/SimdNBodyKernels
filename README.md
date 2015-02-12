@@ -11,23 +11,27 @@ should be easy to incorporate into your own n-body simulation projects.
 
 On Fedora, you'll need to install some packages first.
 
-    sudo yum install llvm-static llvm-devel clang-devel
+    sudo yum install llvm-static llvm-devel clang-devel bison flex
 
 Then, install and build ispc.
 
-    git clone 
+    git clone https://github.com/ispc/ispc.git
     cd ispc
     make
     sudo cp ispc /usr/local/bin
 
 Finally, you can build these examples.
 
-    git clone 
+    git clone https://github.com/markstock/SimdNBodyKernels.git
     cd SimdNBodyKernels/gravitation3Daccel
     make
     ./nbody
 
 ### Kernel details
+
+The magic of ispc is that the inner-loop kernel code used for the SIMD-accelerated
+version (`nbody.ispc`) is exactly the same as the inner-loop kernel code for the 
+serial version (`nbody_serial.cpp`).
 
 Gravitation kernels solve for acceleration and use a Krasny-style desingularization
 with radius 0.1.
@@ -37,5 +41,8 @@ All kernels use "structure of arrays"-style data patterns. Other systems
 may be more performant.
 
 ### Performance
+
+Performance of the serial and SIMD-accelerated functions is reported in clock "cycles".
+To find the compute time or Flop/s you'll need to divide by the clock frequency in MHz.
 
 
