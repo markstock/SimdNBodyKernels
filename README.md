@@ -4,8 +4,15 @@ Easy-to-implement n-body simulation kernels created using Intel's ispc and llvm/
 
 This package contains several simple single-step programs for force summation 
 using the direct O(N^2) n-body method, accelerated with both SIMD extensions
-(SSE2, AVX) and multithreading using Intel's ispc compiler. These blocks of code
+(SSE2, SSE4, AVX, AVX2, FMA3) and multithreading using Intel's ispc compiler.
+These blocks of code
 should be easy to incorporate into your own n-body simulation projects.
+
+Note that ispc makes writing SIMD-accelerated kernels easy. In the examples herein,
+the *exact* same code is used in the serial (X87) version as is used in the 
+SIMD version. You don't have to be aware of the underlying instruction set when
+writing your code, you just express the inner loop as simply as possible and let
+ispc/clang/llvm do the rest.
 
 ### Compiling
 
@@ -69,6 +76,12 @@ Users are encouraged to create new kernels or faster implementations of the curr
 
 
 ### Performance
+
+When you build the example programs, the compiler will build multiple versions and
+dynamically dispatch at run-time to accomodate whichever instruction sets your CPU
+supports. It will always choose the fastest available version.
+Edit the `Makefile` to limit the available versions if you want to test just
+SSE2 instructions on a machine that supports AVX, for example.
 
 Performance of the serial and SIMD-accelerated functions is reported in clock "cycles".
 To find the compute time or Flop/s you'll need to divide by the clock frequency in MHz.
