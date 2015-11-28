@@ -1,5 +1,5 @@
 # SimdNBodyKernels
-Easy-to-implement n-body simulation kernels created using Intel's ispc and llvm/clang
+Easy-to-implement n-body simulation kernels created using Intel's [ispc](https://github.com/ispc/ispc/) and llvm/clang
 
 
 This package contains several simple single-step programs for force summation 
@@ -20,7 +20,7 @@ On Fedora, you'll need to install some packages first.
 
     sudo yum install llvm-static llvm-devel clang-devel bison flex
 
-Then, install and build ispc.
+Then, install and build [ispc](https://github.com/ispc/ispc/).
 
     git clone https://github.com/ispc/ispc.git
     cd ispc
