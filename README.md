@@ -101,16 +101,23 @@ To find the compute time or Flop/s you'll need to divide by the clock frequency 
 
 ~~~~
     grav3Daccel serial          17930.472 mcycles
-    grav3Daccel SIMD (AVX)      2237.404 mcycles	8.01x speedup	(peak at 8.048 GFlop/s)
+    grav3Daccel SIMD (AVX)       2237.404 mcycles	8.01x speedup	(peak at 8.048 GFlop/s)
 
     vortex3Dvel serial          18530.592 mcycles
-    vortex3Dvel SIMD (AVX)      2274.150 mcycles	8.15x speedup	(peak at 12.32 GFlop/s)
-    vortex3Dvel_mt1d SIMD (AVX) 214.259 mcycles		86.49x speedup	(peak at 130.7 GFlop/s)
+    vortex3Dvel SIMD (AVX)       2274.150 mcycles	8.15x speedup	(peak at 12.32 GFlop/s)
+    vortex3Dvel_mt1d SIMD (AVX)   214.259 mcycles	86.49x speedup	(peak at 130.7 GFlop/s)
 ~~~~
 
 * Desktop (8-core i7-5960X, 4.5GHz OC, Fedora 21, llvm/clang 3.5.0), n=50000
 
-    TBD
+~~~~
+    grav3Daccel serial          82465.704 mcycles
+    grav3Daccel SIMD (AVX2)      5877.314 mcycles	14.03x speedup	(peak at 34.45 GFlop/s)
+
+    vortex3Dvel serial          82140.888 mcycles
+    vortex3Dvel SIMD (AVX2)      7499.812 mcycles	10.95x speedup	(peak at 42.00 GFlop/s)
+    vortex3Dvel_mt1d SIMD (AVX2)  932.404 mcycles	88.10x speedup	(peak at 337.9 GFlop/s)
+~~~~
 
 
 ### Acknowledgements
