@@ -12,8 +12,8 @@ static inline void nbody_kernel_serial(float sx, float sy, float ss, float sr,
     float dy = sy - ty;
     float r2 = dx*dx + dy*dy + sr*sr;
     r2 = ss/r2;
-    *tax -= r2 * dy;
-    *tay += r2 * dx;
+    *tax += r2 * dy;
+    *tay -= r2 * dx;
 }
 
 void nbody_serial(int numSrcs, float sx[], float sy[], float ss[], float sr[],
